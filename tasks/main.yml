@@ -1,0 +1,24 @@
+---
+
+- name: Ensure pip installed
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - python-pip
+  tags: [ site-discovery, install ]
+
+- name: Install site-discovery
+  pip:
+    name: site-discovery
+    state: latest
+  tags: [ server-scripts, install ]
+
+- name: site-info config
+  template:
+    src: site-info.yml.j2
+    dest: /etc/site-info.yml
+    owner: root
+    group: root
+    mode: 0644
+  tags: [ server-scripts, configure ]
