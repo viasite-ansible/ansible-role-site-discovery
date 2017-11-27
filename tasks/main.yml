@@ -12,7 +12,7 @@
   pip:
     name: site-discovery
     state: latest
-  tags: [ server-scripts, install ]
+  tags: [ server-scripts, install, skip_ansible_lint ]
 
 - name: site-info config
   template:
