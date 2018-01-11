@@ -3,7 +3,7 @@
 - name: Ensure pip installed
   apt:
     name: "{{ item }}"
-    state: present
+    state: latest
   with_items:
     - python-pip
   tags: [ site-discovery, install ]
@@ -18,6 +18,15 @@
   template:
     src: site-info.yml.j2
     dest: /etc/site-info.yml
+    owner: root
+    group: root
+    mode: 0644
+  tags: [ server-scripts, configure ]
+
+- name: server-info config
+  template:
+    src: server-info.yml.j2
+    dest: /etc/server-info.yml
     owner: root
     group: root
     mode: 0644

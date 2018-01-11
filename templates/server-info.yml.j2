@@ -1,0 +1,13 @@
+---
+tests:
+- name: nginx_pages_time
+  comment: Время генерации всех страниц за прошлый день
+  command: "cat /var/log/nginx/drupal_cache_hit.log.1 | awk '{print $NF}' | awk '{s+=$1} END {print s}' | cut -d'.' -f1"
+  type: integer
+  groups: main
+
+- name: nginx_pages_total
+  comment: Количество отданных страниц за прошлый день
+  command: cat /var/log/nginx/drupal_cache_hit.log.1 | grep -v 444 | wc -l
+  type: integer
+  groups: main
