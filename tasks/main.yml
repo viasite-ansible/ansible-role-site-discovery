@@ -3,7 +3,7 @@
 - name: Ensure pip installed
   apt:
     name: "{{ item }}"
-    state: latest
+    state: present
   with_items:
     - python-pip
   tags: [ site-discovery, install ]
