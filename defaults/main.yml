@@ -1,5 +1,11 @@
 ---
 site_discovery_server_info_tests:
+- name: group_all
+  comment: Для Grafana
+  command: "echo 1"
+  type: integer
+  groups: main
+
 - name: nginx_pages_time
   comment: Время генерации всех страниц за прошлый день
   command: "cat /var/log/nginx/drupal_cache_hit.log.1 | awk '{print $NF}' | awk '{s+=$1} END {print s}' | cut -d'.' -f1"
