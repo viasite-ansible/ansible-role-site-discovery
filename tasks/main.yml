@@ -12,6 +12,7 @@
   pip:
     name: site-discovery
     state: latest
+    executable: /usr/bin/pip3
   tags: [ server-scripts, install, skip_ansible_lint ]
 
 - name: site-info config
