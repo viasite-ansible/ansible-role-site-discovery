@@ -16,6 +16,7 @@
       - setuptools
     state: latest
     executable: /usr/bin/pip3
+  changed_when: false
   tags: skip_ansible_lint
 
 - name: Install site-discovery
