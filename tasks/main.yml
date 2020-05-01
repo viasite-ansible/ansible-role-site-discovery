@@ -1,12 +1,22 @@
 ---
 
-- name: Ensure pip installed
+- name: Ensure python 3 and pip installed
   apt:
-    name: "{{ item }}"
+    name:
+      - python3
+      - python3-pip
     state: present
-  with_items:
-    - python-pip
   tags: [ site-discovery, install ]
+
+# https://github.com/nicolargo/glances/issues/1033#issuecomment-279319763
+- name: Upgrade pip and setuptools
+  pip:
+    name:
+      - pip
+      - setuptools
+    state: latest
+    executable: /usr/bin/pip3
+  tags: skip_ansible_lint
 
 - name: Install site-discovery
   pip:
