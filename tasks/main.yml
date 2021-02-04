@@ -1,7 +1,7 @@
 ---
 
 - name: Ensure python 3 and pip installed
-  apt:
+  package:
     name:
       - python3
       - python3-pip
