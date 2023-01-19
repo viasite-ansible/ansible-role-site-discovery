@@ -15,7 +15,7 @@
       - pip
       - setuptools
     state: latest
-    executable: /usr/bin/pip3
+    # executable: /usr/bin/pip3
   changed_when: false
   tags: skip_ansible_lint
 
@@ -23,7 +23,7 @@
   pip:
     name: site-discovery
     state: latest
-    executable: /usr/bin/pip3
+    # executable: /usr/bin/pip3
   tags: [ server-scripts, install, skip_ansible_lint ]
 
 - name: site-info config
